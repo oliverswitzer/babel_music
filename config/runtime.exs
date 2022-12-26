@@ -20,6 +20,12 @@ if System.get_env("PHX_SERVER") do
   config :babel_music, BabelMusicWeb.Endpoint, server: true
 end
 
+config :spotify_ex,
+  client_id: System.get_env("SPOTIFY_CLIENT_ID"),
+  secret_key: System.get_env("SPOTIFY_SECRET_KEY"),
+  user_id: "128462576",
+  scopes: ["playlist-read-private", "playlist-modify-private", "playlist-modify-public"]
+
 if config_env() == :prod do
   database_url =
     System.get_env("DATABASE_URL") ||
@@ -50,6 +56,9 @@ if config_env() == :prod do
 
   host = System.get_env("PHX_HOST") || "example.com"
   port = String.to_integer(System.get_env("PORT") || "4000")
+
+  config :spotify_ex,
+    callback_url: "https://#{host}/authenticate"
 
   config :babel_music, BabelMusicWeb.Endpoint,
     url: [host: host, port: 443, scheme: "https"],

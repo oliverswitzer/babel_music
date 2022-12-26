@@ -1,0 +1,2 @@
+export SPOTIFY_CLIENT_ID=<Found in Spotify dev dashboard https://developer.spotify.com/dashboard>
+export SPOTIFY_SECRET_KEY<Found in Spotify dev dashboard https://developer.spotify.com/dashboard>

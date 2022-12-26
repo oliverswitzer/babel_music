@@ -17,6 +17,9 @@ defmodule BabelMusicWeb.Router do
   scope "/", BabelMusicWeb do
     pipe_through :browser
 
+    get "/users/spotify/authorize", AuthorizationController, :authorize
+    get "/users/spotify/callback", AuthorizationController, :callback
+
     get "/", PageController, :home
   end
 
