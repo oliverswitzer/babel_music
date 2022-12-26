@@ -26,7 +26,17 @@ config :babel_music, BabelMusicWeb.Endpoint,
   secret_key_base: "OoVIsS520pj/ATQD5JO8qb+bjIyxqRgkFaa+KsMT8YcXdqJ7BrrPS4MAugmOeMwk",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
+    tailwind: [
+      "./node_modules/.bin/tailwindcss",
+      "-i",
+      "css/app.css",
+      "-o",
+      "../priv/static/assets/app.css",
+      "-c",
+      "tailwind.config.js",
+      "--watch",
+      cd: Path.expand("../assets", __DIR__)
+    ]
   ]
 
 # ## SSL Support
