@@ -40,7 +40,7 @@ config :babel_music, BabelMusicWeb.Endpoint,
   ]
 
 config :spotify_ex,
-  callback_url: "http://localhost:4000/users/spotify/callback"
+  callback_url: "https://geometer-oliver.ngrok.io/users/spotify/callback"
 
 # SSL Suppor
 # In order to use HTTPS in development, a self-signed

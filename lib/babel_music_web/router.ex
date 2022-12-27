@@ -20,6 +20,8 @@ defmodule BabelMusicWeb.Router do
     get "/users/spotify/authorize", AuthorizationController, :authorize
     get "/users/spotify/callback", AuthorizationController, :callback
 
+    live "/playlist-converter", PlaylistConverterLive, :index
+
     get "/", PageController, :home
   end
 
